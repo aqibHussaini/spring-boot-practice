@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>My Corona App in spring Boot</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/fontawesome.min.css"/>
+</head>
+<body>
+<div class="container mt-4">
+    <div class="row ">
+
+    <section class="mt-4">
+<div class="card card-body shadow-lg">
+    <div class="table-responsive">
+        <table class="table table-striped ">
+            <thead>
+            <tr>
+                <th scope="col">Index</th>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Pic</th>
+                <th scope="col">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="p,iter : ${products}">
+                <td scope="row" th:text="${iter.index+1}"></td>
+                <th scope="row" th:text="${p.getName()}"></th>
+                <td  th:text="${p.getPrice()}"></td>
+                <td>
+                    <img   th:src="@{${'/images/' + p.getPicture()}}" height="100px" width="100px"/>
+                </td>
+                <td>
+                    <a class="fa fa-lg fa-edit fa-2x text-success mt-2 " href="#"></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+    </section>
+</div>
+</body>
+</html>
